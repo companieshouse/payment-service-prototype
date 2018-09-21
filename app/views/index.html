@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Companies House Payment Service prototype
+      </h1>
+      <p class="govuk-body-l">
+        The prototype to guide the development of a user journey for the payment service.
+      </p>
+      <h2 class="govuk-heading-l">Standard Service Journey</h2>
+      <p>
+        In this journey, the payment service is attached to a single Companies House service journey (the 'originating service'). Examples may include File company accounts, Pay a late filing penalty or Close a company.
+      </p>
+      <p>
+        In this scenario, the originating service would retain control of the user journey for reviewing what is being paid for and also for final confirmation of payment/submission.
+      </p>
+      {{ govukButton({
+        text: "Single Service Journey",
+        href: "choose-payment-method"
+      }) }}
+      <h2 class="govuk-heading-l">3rd Party Application Journey</h2>
+      <p>
+        In this journey, the payment service is attached to a 3rd part application or service. Examples include retail software filing applications where bulk filings are supported.
+      </p>
+      {{ govukButton({
+        text: "Multiple Payment Journey (Basket)",
+        href: "basket"
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

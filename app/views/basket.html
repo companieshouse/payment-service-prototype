@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "alpha"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Review your basket
+      </h1>
+      <p class="govuk-body-l">
+        Review the items in your basket before continuing.
+      </p>
+      {{ govukTable({
+        caption: "Items in your basket",
+        captionClasses: "govuk-visually-hidden",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Item"
+          },
+          {
+            text: "Amount to pay"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Late Filing Penalty (00345672)"
+            },
+            {
+              text: "£150"
+            }
+          ],
+          [
+            {
+              text: "Confirmation Statement (10239845)"
+            },
+            {
+              text: "£13"
+            }
+          ],
+          [
+            {
+              text: "Close a company (02238765)"
+            },
+            {
+              text: "£8"
+            }
+          ]
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">The total amount to pay is £171</h3>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "choose-payment-method"
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

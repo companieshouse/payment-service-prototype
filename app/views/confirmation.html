@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Confirmation page example
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Payments received by Companies House</h1>
+        <div class="govuk-panel__body">
+          Your reference number is<br>
+          <strong>HDJ2123F</strong>
+        </div>
+      </div>
+      <p class="govuk-body-l">
+        We've sent a confirmation email containing your reference number to
+        {{ userEmail }}
+      </p>
+      {{ govukTable({
+        caption: "Payments you made",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Item"
+          },
+          {
+            text: "Amount paid"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Late Filing Penalty (00345672)"
+            },
+            {
+              text: "£150"
+            }
+          ],
+          [
+            {
+              text: "Confirmation Statement (10239845)"
+            },
+            {
+              text: "£13"
+            }
+          ],
+          [
+            {
+              text: "Close a company (02238765)"
+            },
+            {
+              text: "£8"
+            }
+          ]
+        ]
+      }) }}
+      <h3 class="govuk-heading-m">The total amount paid is £171</h3>
+      <p>
+        <a href="" class="govuk-link">Print this page for your records</a>
+      </p>
+      <p>
+        <a href="" class="govuk-link">Save a copy of this page</a>
+        (PDF, 303KB)
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
