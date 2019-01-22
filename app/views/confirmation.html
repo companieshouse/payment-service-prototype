@@ -20,17 +20,19 @@
       </div>
       <p class="govuk-body-l">
         We've sent a confirmation email containing your reference number to
-        {{ userEmail }}
+        <span class="govuk-!-font-weight-bold">{{ userEmail }}</span>
       </p>
       {{ govukTable({
         caption: "Payments you made",
+        captionClasses: "govuk-visually-hidden",
         firstCellIsHeader: false,
         head: [
           {
             text: "Item"
           },
           {
-            text: "Amount paid"
+            text: "Amount paid",
+            format: "numeric"
           }
         ],
         rows: [
@@ -39,7 +41,8 @@
               text: "Late Filing Penalty (00345672)"
             },
             {
-              text: "£150"
+              text: "£150",
+              format: "numeric"
             }
           ],
           [
@@ -47,7 +50,8 @@
               text: "Confirmation Statement (10239845)"
             },
             {
-              text: "£13"
+              text: "£13",
+              format: "numeric"
             }
           ],
           [
@@ -55,18 +59,26 @@
               text: "Close a company (02238765)"
             },
             {
-              text: "£8"
+              text: "£8",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Total"
+            },
+            {
+              text: "£171",
+              format: "numeric"
             }
           ]
         ]
       }) }}
-      <h3 class="govuk-heading-m">The total amount paid is £171</h3>
       <p>
         <a href="" class="govuk-link">Print this page for your records</a>
       </p>
       <p>
-        <a href="" class="govuk-link">Save a copy of this page</a>
-        (PDF, 303KB)
+        <a href="" class="govuk-link">Save a copy of this page, (PDF, 303KB)</a>
       </p>
     </div>
   </div>
